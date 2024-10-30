@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 30px;
+}
+.logo .icon {
+  width: 40px;
+  border-radius: 50%;
+  border: #f2c552 solid 4px;
+}
+.logo .name {
+  font-size: 20px;
+  font-family: "JetBrains Mono";
+}/*# sourceMappingURL=common.css.map */
