@@ -1,15 +1,41 @@
-.logo {
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+* {
+  margin: 0;
+}
+
+.main {
+  padding: 30px;
+}
+
+.h1-container {
   display: flex;
-  position: relative;
-  align-items: center;
-  gap: 30px;
+  background: rgba(98, 40, 11, 0.04);
+  width: 100vw;
+  height: 120px;
+  margin: -30px;
+  line-height: 115px;
 }
-.logo .icon {
-  width: 40px;
-  border-radius: 50%;
-  border: #f2c552 solid 4px;
+.h1-container h1 {
+  font-family: "凸版文久見出しゴシック", serif;
+  color: #62280b;
+  margin-left: 30px;
+  font-size: 2em;
 }
-.logo .name {
-  font-size: 20px;
-  font-family: "JetBrains Mono";
+
+header {
+  height: 60px;
+  background: black;
+  text-align: center;
+  line-height: 65px;
+  width: 100%;
+}
+
+.sitename {
+  color: white;
+  font-family: "Mont";
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: rgba(255, 255, 255, 0.12) 2px 2px 2px;
 }/*# sourceMappingURL=common.css.map */

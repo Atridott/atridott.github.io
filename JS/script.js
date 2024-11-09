@@ -1,3 +1,7 @@
+$(function(){
+	$("#header").load("../../assets/include/header.html"); // 相対パスで書いてるのって良くないと思う
+});
+
 const darklight = $("#darklight_btn");
 darklight.on("click", () => {
 	const target = $("body, body *:not(script)");
