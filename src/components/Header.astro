@@ -1,0 +1,38 @@
+---
+import "../styles/global.css"
+
+// Lucide Icons
+import Map from "@lucide/astro/icons/map"
+import Globe from "@lucide/astro/icons/globe"
+import Palette from "@lucide/astro/icons/palette"
+
+const buttonStyles =
+  "flex h-full w-fit cursor-pointer items-center justify-center text-slate-500 transition-all hover:text-slate-900 pt-1"
+---
+
+<header
+  class={`
+    fixed flex h-60 w-full items-start justify-center bg-linear-to-b
+    from-slate-100/100 from-25% to-slate-100/0
+  `}
+>
+  <div class="flex h-20 w-full max-w-7xl px-12 py-2">
+    <img
+      src="/logo.svg"
+      alt=""
+      aria-hidden
+      class="pointer-events-none aspect-square h-full"
+    />
+    <div class="flex h-full flex-1 justify-end">
+      <button class={buttonStyles + ` ps-4 pe-2`}>
+        <Palette size="24" />
+      </button>
+      <button class={buttonStyles + ` px-2`}>
+        <Globe size="24" />
+      </button>
+      <button class={buttonStyles + ` ps-2 pe-4`}>
+        <Map size="24" />
+      </button>
+    </div>
+  </div>
+</header>

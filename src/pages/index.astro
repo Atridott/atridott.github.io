@@ -1,5 +1,5 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <link
       rel="icon"
-      type="image/svg+xml"
+      type="img/svg+xml"
       href="/favicon.svg"
     />
     <meta
@@ -18,9 +18,57 @@
       name="generator"
       content={Astro.generator}
     />
-    <title>Astro</title>
+    <title>atridott.github.io</title>
   </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
+  <BaseLayout>
+    <h1>Purposes and Principles</h1>
+    <h2>The Pedagogical Problems</h2>
+    <h3>Lack of Instruction on Typing</h3>
+    <p>
+      Students learning Japanese in conventional settings, such as university
+      foreign language courses, face several problems in the course of learning.
+      Some are inherent difficulties of aquiring a foreign language, which are
+      inevitable, but a few are not so. In fact, Kyouro addresses certain
+      problems precisely because they are addressable.
+    </p>
+    <p>
+      One example is the lack of instruction on typing. Today, written languages
+      are primarily composed on digital devices such as computers and
+      smartphones. Japanese is not an exception. Hence, learning to write
+      Japanese inevitably requires learning how to use the Japanese input
+      systems on these devices. But conventional classrooms often neglect to
+      give systematic instructions on how to type the phraes they teach on the
+      iPhone or Windows laptops. The focus is heavily skewed towards
+      handwriting; students spend a considerable amount of time practicing pen
+      strokes of hiragana, katakana, and kanji, leaving the more practial
+      skills—precise keystrokes and correct conversion—untouched.
+    </p>
+    <p>
+      Most Japanese speakers use kana input systems on smartphones and romaji
+      input systems on computers. Second language speakers, expecially those who
+      speak English natively, seem to prefer the romaji system, at least
+      initially. Luckly, most widespread systems offer a romaji input method on
+      mobile and desktop, and the students are somewhat familiar with romaji. At
+      this point, some may assume that they only need to know how to use their
+      personal devices to type Japanese. The truth is that the romaji input
+      systems assume a slightly different romanization system from the familiar
+      romaji spellings seen in the textbooks and therefore the students need to
+      learn the specific romanization rules in order to properly use their
+      Japanese input softwares.
+    </p>
+    <p>
+      In short, JSL education needs to give the students explicit instructions
+      on romanization for typing. To address this issue, Kyouro serves as a
+      reasonable representation of how the language is typed in on digital
+      devices. For example, the moraic nasal is writtne as a single n in the
+      Hepburn romanization system (the most common one out side of digital
+      contexts), potentially hindering the student from correctly guessing the
+      keystrokes of common phrases like konnichiwa, which is k-on-n-n-i-t-i-h-a.
+      In Kyouro, this phrase is written as konnnıtıˈhȧ, mirrorring the keystroke
+      exactly, e.g., the number of n’s is how many times it has to be pressed
+      down to type it. Similarly, the small tsu in Kyouro is writtne either xtu
+      or by doubling the following consonant letter, which is just how it should
+      be typed in.
+    </p>
+  </BaseLayout>
 </html>
