@@ -3,10 +3,3 @@
 p {
   margin-block: 1lh;
 }
-
-h1 {
-  font-family: "凸版文久見出しゴシック";
-  font-size: var(--text-2xl);
-  font-weight: var(--font-weight-light);
-  line-height: var(--text-7xl);
-}
