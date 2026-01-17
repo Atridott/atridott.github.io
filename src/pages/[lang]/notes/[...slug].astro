@@ -3,11 +3,11 @@ import { type CollectionEntry, getCollection, render } from "astro:content"
 import Layout from "../../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
-  const pages = await getCollection("blog")
+  const pages = await getCollection("notes")
 
-  return pages.map((page: CollectionEntry<"blog">) => {
+  return pages.map((page: CollectionEntry<"notes">) => {
     const [lang, ...slug] = page.id
-      .replace(/\.[^/.]+$/, "") // 拡張子を消す
+      .replace(/\.[^/.]+$/, "") // 拡張子 (.mdx) を消す
       .split("/")
     const path = {
       params: { lang, slug: slug.join("/") || undefined },
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  page: CollectionEntry<"blog">
+  page: CollectionEntry<"notes">
 }
 
 const { page } = Astro.props
