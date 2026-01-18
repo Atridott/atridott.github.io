@@ -15,17 +15,13 @@ import ScrollText from "@lucide/astro/icons/scroll-text"
 const { title } = Astro.props
 ---
 
-<header
-  class={`
-    pointer-events-none fixed top-0 z-10 flex h-32 w-full items-start
-    justify-center bg-linear-to-b from-stone-50 from-50% to-transparent
-    transition-all duration-300
-  `}
->
+<header class={`fixed top-0 isolate flex w-full justify-center`}>
   <div
     class={`
-      pointer-events-auto flex h-fit w-full max-w-6xl justify-between ps-6 pe-4
-      pt-4 pb-0
+      flex w-full max-w-6xl justify-start ps-6 pe-4 pt-4 pb-0
+      before:fixed before:inset-0 before:h-32 before:w-full
+      before:bg-linear-to-b before:from-stone-100 before:from-50%
+      before:to-transparent
     `}
   >
     <div
@@ -41,7 +37,7 @@ const { title } = Astro.props
         fill="none"
         id="header-logo"
         class={`
-          me-6 text-stone-900 opacity-0 transition-all duration-300
+          mr-6 text-stone-900 opacity-0 transition-all duration-300
           md:translate-0 md:opacity-100
         `}
         aria-hidden="true"
@@ -88,8 +84,10 @@ const { title } = Astro.props
         <span class="line-clamp-1 break-all">{title}</span>
       </div>
     </div>
-
-    <nav>
+    <nav
+      aria-label="サイト操作"
+      class="z-1"
+    >
       <ul class="flex gap-1">
         <li>
           <button
@@ -106,6 +104,8 @@ const { title } = Astro.props
             <Settings
               size="24"
               stroke-width="1.8"
+              aria-hidden="true"
+              focusable="false"
             />
           </button>
         </li>
@@ -123,6 +123,8 @@ const { title } = Astro.props
             <ScrollText
               size="24"
               stroke-width="1.8"
+              aria-hidden="true"
+              focusable="false"
             />
           </button>
         </li>
@@ -130,6 +132,7 @@ const { title } = Astro.props
     </nav>
   </div>
 </header>
+
 <script>
   const title = document.getElementById("header-title")
   const logo = document.getElementById("header-logo")
@@ -137,7 +140,7 @@ const { title } = Astro.props
   const handleScroll = () => {
     if (
       window.visualViewport &&
-      window.scrollY > window.visualViewport.height * 0.4
+      window.scrollY > window.visualViewport.height * 0.43
     ) {
       title?.classList.add("opacity-100", "translate-y-0", "delay-75")
       title?.classList.remove("opacity-0", "translate-y-4")
