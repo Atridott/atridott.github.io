@@ -1,10 +1,13 @@
 ---
-import Header from "../components/Header.astro"
+import Header from "../components/layout/Header.astro"
 import "../styles/global.css"
-const { title, emoji, desc } = Astro.props
+const { title, emoji, tone, desc } = Astro.props
 ---
 
-<html lang={Astro.currentLocale}>
+<html
+  lang={Astro.currentLocale}
+  data-tone={tone}
+>
   <head>
     <meta charset="utf-8" />
     <link
@@ -20,40 +23,46 @@ const { title, emoji, desc } = Astro.props
       name="description"
       content={desc}
     />
-    <title>{title + " - ȧ.io"}</title>
+    <title>{`${title} - ȧ.io`}</title>
   </head>
   <body
     class={`
-      bg-stone-200 text-justify
-      selection:bg-amber-300/50 selection:text-amber-950
+      bg-page text-justify
+      selection:bg-selection-bg selection:text-selection
     `}
   >
     <Header title={title} />
     <main
       class={`
-        z-0 flex w-full flex-col items-center leading-loose text-stone-800
+        isolate z-0 flex w-full flex-col items-center leading-loose text-text
       `}
     >
       <header
         class={`
-          flex h-[50lvh] min-h-96 w-full justify-center bg-linear-to-b
-          from-stone-50 from-50% to-stone-200 pb-20
+          flex h-[60dvh] min-h-[30rem] w-full justify-center border-b-2
+          border-text-dim/10
+          bg-[image:repeating-linear-gradient(135deg,var(--stripe)_0,var(--stripe)_2px,transparent_0,transparent_50%)]
+          bg-[size:12px_12px]
+          [--stripe:var(--color-text-dim)]/10
         `}
       >
         <div
           class={`
-            flex w-full max-w-prose flex-col items-center justify-end-safe px-6
+            flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6
+            border-x-2 border-text-dim/10 px-6
           `}
         >
           <span
-            class="text-6xl"
+            class="text-8xl"
             aria-hidden="true"
             >{emoji}</span
           >
-          <h1>{title}</h1>
+          <h1 class="mb-20 text-3xl">{title}</h1>
         </div>
       </header>
-      <article class="max-w-prose px-6">
+      <article
+        class={`max-w-[calc(65ch+3rem)] border-x-2 border-text-dim/10 p-6`}
+      >
         <slot />
       </article>
     </main>

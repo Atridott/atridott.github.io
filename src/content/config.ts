@@ -5,6 +5,7 @@ const notes = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		emoji: z.string().emoji().optional().default('📝'),
+		tone: z.string(),
 		desc: z.string(),
 	})
 })

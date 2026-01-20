@@ -1,11 +1,76 @@
 @import "tailwindcss";
 
-p {
-  margin-block: 1lh;
+/* Font Source */
+/* @import "@fontsource/zen-kaku-gothic-new/300.css"; */
+/* @import "@fontsource/zen-kaku-gothic-new/400.css"; */
+@import "@fontsource/zen-kaku-gothic-new/500.css";
+/* @import "@fontsource/zen-kaku-gothic-new/700.css"; */
+/* @import "@fontsource/zen-kaku-gothic-new/900.css"; */
+
+@theme static {
+  --color-page: var(--page);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-header: var(--header);
+  --color-selection-bg: var(--selection-bg);
+  --color-selection: var(--selection);
 }
 
-a {
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4.5px;
+:root {
+  @media (prefers-color-scheme: light) {
+    &[data-tone="warm"] {
+      --page: var(--color-stone-200);
+      --text: var(--color-stone-800);
+      --text-dim: var(--color-stone-500);
+      --header: var(--color-stone-100);
+      --selection-bg: rgb(from var(--color-amber-400) r g b / 30%);
+      --selection: var(--color-amber-900);
+    }
+
+    &[data-tone="cool"] {
+      --page: var(--color-slate-100);
+      --text: var(--color-slate-900);
+      --text-dim: var(--color-slate-500);
+      --header: var(--color-white);
+      --selection-bg: rgb(from var(--color-sky-400) r g b / 30%);
+      --selection: var(--color-sky-900);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &[data-tone="warm"] {
+      --page: var(--color-stone-800);
+      --text: var(--color-stone-300);
+      --text-dim: var(--color-stone-400);
+      --header: var(--color-stone-900);
+      --selection-bg: rgb(from var(--color-amber-700) r g b / 40%);
+      --selection: var(--color-amber-50);
+    }
+
+    &[data-tone="cool"] {
+      --page: var(--color-slate-800);
+      --text: var(--color-slate-300);
+      --text-dim: var(--color-slate-400);
+      --header: var(--color-slate-900);
+      --selection-bg: rgb(from var(--color-cyan-400) r g b / 40%);
+      --selection: var(--color-cyan-50);
+    }
+  }
+}
+
+@custom-variant data-scrolled (html[data-scrolled] &);
+
+@layer base {
+  a {
+    @apply underline underline-offset-4 decoration-text-dim hover:decoration-text hover:bg-text-dim/20;
+  }
+
+  ul {
+    @apply ms-8;
+    li {
+      &::marker {
+        content: "–  ";
+      }
+    }
+  }
 }

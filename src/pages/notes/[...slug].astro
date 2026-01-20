@@ -4,7 +4,6 @@ import Layout from "../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
   const pages = await getCollection("notes")
-  console.log(pages)
   return pages.map((page: CollectionEntry<"notes">) => ({
     params: { slug: page.slug },
     props: { page },
