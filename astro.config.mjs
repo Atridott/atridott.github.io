@@ -15,15 +15,4 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
-
-  i18n: {
-    locales: ["ja", "en"],
-    defaultLocale: "ja",
-    fallback: {
-      en: "ja",
-    },
-    routing: {
-      prefixDefaultLocale: true,
-    },
-  },
 })

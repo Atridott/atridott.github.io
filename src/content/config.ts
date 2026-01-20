@@ -4,6 +4,8 @@ const notes = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
+		emoji: z.string().emoji().optional().default('📝'),
+		desc: z.string(),
 	})
 })
 

@@ -3,3 +3,9 @@
 p {
   margin-block: 1lh;
 }
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4.5px;
+}

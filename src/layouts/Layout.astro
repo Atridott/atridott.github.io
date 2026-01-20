@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro"
 import "../styles/global.css"
-const { title } = Astro.props
+const { title, emoji, desc } = Astro.props
 ---
 
 <html lang={Astro.currentLocale}>
@@ -16,26 +16,46 @@ const { title } = Astro.props
       name="viewport"
       content="width=device-width, initial-scale=1"
     />
-    <title>{title + " - Atridott"}</title>
+    <meta
+      name="description"
+      content={desc}
+    />
+    <title>{title + " - ȧ.io"}</title>
   </head>
   <body
     class={`
       bg-stone-200 text-justify
-      selection:bg-sky-200/90 selection:text-sky-900
+      selection:bg-amber-300/50 selection:text-amber-950
     `}
   >
     <Header title={title} />
     <main
-      class={`mx-auto w-full max-w-prose px-12 leading-loose text-stone-800`}
+      class={`
+        z-0 flex w-full flex-col items-center leading-loose text-stone-800
+      `}
     >
-      <h1
+      <header
         class={`
-          flex h-[50lvh] items-end-safe text-2xl font-semibold font-stretch-50%
+          flex h-[50lvh] min-h-96 w-full justify-center bg-linear-to-b
+          from-stone-50 from-50% to-stone-200 pb-20
         `}
       >
-        {title}
-      </h1>
-      <slot />
+        <div
+          class={`
+            flex w-full max-w-prose flex-col items-center justify-end-safe px-6
+          `}
+        >
+          <span
+            class="text-6xl"
+            aria-hidden="true"
+            >{emoji}</span
+          >
+          <h1>{title}</h1>
+        </div>
+      </header>
+      <article class="max-w-prose px-6">
+        <slot />
+      </article>
     </main>
   </body>
 </html>
