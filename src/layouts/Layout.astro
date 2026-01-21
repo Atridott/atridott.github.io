@@ -1,6 +1,10 @@
 ---
-import Header from "../components/layout/Header.astro"
 import "../styles/global.css"
+
+import Header from "../components/layout/Header.astro"
+
+import Footer from "../components/layout/Footer.astro"
+
 const { title, emoji, tone, desc } = Astro.props
 ---
 
@@ -27,29 +31,29 @@ const { title, emoji, tone, desc } = Astro.props
   </head>
   <body
     class={`
-      bg-page text-justify
+      bg-stripe bg-page bg-fixed
       selection:bg-selection-bg selection:text-selection
     `}
   >
-    <Header title={title} />
+    <Header
+      title={title}
+      emoji={emoji}
+    />
     <main
       class={`
-        isolate z-0 flex w-full flex-col items-center leading-loose text-text
+        isolate z-0 flex w-full flex-col items-center leading-loose
+        text-text
       `}
     >
       <header
         class={`
-          flex h-[60dvh] min-h-[30rem] w-full justify-center border-b-2
-          border-text-dim/10
-          bg-[image:repeating-linear-gradient(135deg,var(--stripe)_0,var(--stripe)_2px,transparent_0,transparent_50%)]
-          bg-[size:12px_12px]
-          [--stripe:var(--color-text-dim)]/10
+          overflow-hidden flex relative h-[60dvh] min-h-[30rem] w-full justify-center border-b-2
+          border-page-grid
         `}
       >
         <div
           class={`
-            flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6
-            border-x-2 border-text-dim/10 px-6
+             isolate z-10 flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6 px-7
           `}
         >
           <span
@@ -57,14 +61,20 @@ const { title, emoji, tone, desc } = Astro.props
             aria-hidden="true"
             >{emoji}</span
           >
-          <h1 class="mb-20 text-3xl">{title}</h1>
+          <h1 class="mb-20">{title}</h1>
         </div>
+        <span
+          class="absolute text-[60rem] top-1/2 -translate-x-1/4 leading-[4.5rem] blur-3xl opacity-20 select-none"
+          aria-hidden="true"
+          >{emoji}</span
+        >
       </header>
       <article
-        class={`max-w-[calc(65ch+3rem)] border-x-2 border-text-dim/10 p-6`}
+        class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content`}
       >
         <slot />
       </article>
     </main>
+    <Footer />
   </body>
 </html>

@@ -18,6 +18,12 @@ export default defineConfig([
 		plugins: { "better-tailwindcss": eslintPluginBetterTailwindcss },
 		rules: {
 			...eslintPluginBetterTailwindcss.configs["recommended-error"].rules,
+			"tailwindcss/no-custom-classname": [
+				"warn",
+				{
+					"whitelist": ["bg-stripe"]
+				}
+			]
 		},
 		ignores: ["dist/", ".astro/", "node_modules/"],
 		settings: {
