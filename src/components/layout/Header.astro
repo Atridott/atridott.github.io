@@ -28,10 +28,7 @@ const { title, emoji } = Astro.props
     border-0 data-scrolled:border-b-2 border-page-grid bg-page/0 data-scrolled:bg-page duration-(--dur-normal) transition-all bg-fixed overflow-hidden [--stripe-opacity:0%] data-scrolled:[--stripe-opacity:10%]
   `}
 >
-  <div
-    id="header-bg"
-    class={`flex w-full max-w-6xl justify-start py-4 ps-6 pe-4 `}
-  >
+  <div class={`flex w-full max-w-6xl justify-start py-3 ps-6 pe-4 `}>
     <div
       class={`
         relative flex flex-1 items-center
@@ -42,7 +39,6 @@ const { title, emoji } = Astro.props
         height="22"
         viewBox="0 0 505 220"
         fill="none"
-        id="header-logo"
         class={`
           mr-5.5 text-text opacity-100 transition-all duration-(--dur-normal)
           data-scrolled:-translate-y-4 data-scrolled:opacity-0
@@ -79,14 +75,13 @@ const { title, emoji } = Astro.props
         </>
       </svg>
       <div
-        id="header-title"
         aria-hidden="true"
         class={`
           absolute left-0 flex max-w-lg flex-1 translate-y-4 items-center
           justify-start pt-1 pr-4 text-base font-semibold tracking-tight
           text-text opacity-0 transition-all duration-(--dur-normal) 
           group-hover:text-text-bright
-          before:pe-1.5 before:text-text-dim before:content-["#"] 
+          before:pe-4 before:text-text-dim before:content-["/"] 
           md:static
           data-scrolled:translate-0 data-scrolled:opacity-100
         `}

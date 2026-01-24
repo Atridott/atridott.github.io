@@ -9,12 +9,13 @@
 
 @theme static {
   --color-page: var(--page);
+  --color-page-dim: var(--page-dim);
   --color-text: var(--text);
   --color-text-dim: var(--text-dim);
   --color-text-bright: var(--text-bright);
   --color-text-link: var(--text-link);
   --color-page-grid: rgb(
-    from var(--color-text-dim) r g b / var(--grid-opacity, 10%)
+    from var(--color-text-dim) r g b / var(--grid-opacity, 12%)
   );
   --color-selection-bg: var(--selection-bg);
   --color-selection: var(--selection);
@@ -36,7 +37,7 @@
     &[data-tone="cool"] {
       --page: var(--color-slate-100);
       --text: var(--color-slate-900);
-      --text-dim: var(--color-slate-500);
+      --text-dim: rgb(from var(--color-slate-500) r g b / 70%);
       --text-link: var(--color-);
       --selection-bg: rgb(from var(--color-sky-400) r g b / 30%);
       --selection: var(--color-sky-900);
@@ -117,7 +118,7 @@
     }
 
     & :where(h2) {
-      @apply text-text-bright text-3xl mt-12 mb-8 px-8 py-6 font-semibold bg-fixed border-y-2 border-page-grid;
+      @apply text-text-bright text-3xl mt-12 mb-8 px-8 py-6 font-semibold border-y-2 border-page-grid before:content-["§"] before:text-text-dim before:text-2xl before:me-4;
 
       background-image: repeating-linear-gradient(
         135deg,
