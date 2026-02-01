@@ -2,79 +2,69 @@
 import "../styles/global.css"
 
 import Header from "../components/layout/Header.astro"
-
 import Footer from "../components/layout/Footer.astro"
 
 const { title, emoji, tone, desc } = Astro.props
 ---
 
 <html
-  lang={Astro.currentLocale}
-  data-tone={tone}
+    lang={Astro.currentLocale}
+    data-tone={tone}
 >
-  <head>
-    <meta charset="utf-8" />
-    <link
-      rel="icon"
-      type="img/svg+xml"
-      href="/favicon.svg"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
-    <meta
-      name="description"
-      content={desc}
-    />
-    <title>{`${title} - ȧ.io`}</title>
-  </head>
-  <body
-    class={`
-    	bg-[color-mix(in_hsl,var(--color-page),var(--color-page-grid))] bg-fixed
+    <head>
+        <meta charset="utf-8" />
+        <link
+            rel="icon"
+            type="img/svg+xml"
+            href="/favicon.svg"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+        />
+        <meta
+            name="description"
+            content={desc}
+        />
+        <title>{`${title} - ȧ.io`}</title>
+    </head>
+    <body
+        class={` 
+		bg-page-dim
       selection:bg-selection-bg selection:text-selection
     `}
-  >
-    <Header
-      title={title}
-      emoji={emoji}
-    />
-    <main
-      class={`
-        isolate z-0 flex w-full flex-col items-center leading-loose
-        text-text
-      `}
     >
-      <header
-        class={`
-          overflow-hidden flex relative h-[60dvh] min-h-[30rem] w-full justify-center border-b-2
-          border-page-grid
+        <Header emoji={emoji} />
+        <section
+            class={`
+          flex h-[60dvh] min-h-[30rem] w-full justify-center isolate
         `}
-      >
-        <div
-          class={`
-             isolate z-10 flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6 px-7
+        >
+            <div
+                class={`
+             flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6 px-7
           `}
+            >
+                <span
+                    class="text-8xl"
+                    aria-hidden="true"
+                    >{emoji}</span
+                >
+                <h1 class="text-text-bright mb-20">{title}</h1>
+            </div>
+        </section>
+        <main
+            class={`
+        flex w-full flex-col items-center leading-loose
+        text-text ring-2 ring-page-grid 
+      `}
         >
-          <span
-            class="text-8xl"
-            aria-hidden="true"
-            >{emoji}</span
-          >
-          <h1 class="mb-20">{title}</h1>
-        </div>
-        <span
-          class="absolute text-[60rem] top-1/2 -translate-x-1/4 leading-[4.5rem] blur-3xl opacity-20 select-none"
-          aria-hidden="true"
-          >{emoji}</span
-        >
-      </header>
-      <article
-        class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content`}
-      >
-        <slot />
-      </article>
-    </main>
-    <Footer />
-  </body>
+            <article
+                class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content -z-20`}
+            >
+                <slot />
+            </article>
+        </main>
+        <Footer />
+    </body>
 </html>

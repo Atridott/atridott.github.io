@@ -14,9 +14,7 @@
   --color-text-dim: var(--text-dim);
   --color-text-bright: var(--text-bright);
   --color-text-link: var(--text-link);
-  --color-page-grid: rgb(
-    from var(--color-text-dim) r g b / var(--grid-opacity, 12%)
-  );
+  --color-page-grid: rgb(from var(--color-text-dim) r g b / 12%);
   --color-selection-bg: var(--selection-bg);
   --color-selection: var(--selection);
 }
@@ -26,9 +24,11 @@
 
   @media (prefers-color-scheme: light) {
     &[data-tone="warm"] {
-      --page: var(--color-stone-200);
+      --page: rgb(from var(--color-stone-200) r g b / 80%);
+      --page-dim: var(--color-stone-300);
       --text: var(--color-stone-800);
       --text-dim: var(--color-stone-500);
+      --text-bright: var(--color-stone-900);
       --text-link: var(--color-);
       --selection-bg: rgb(from var(--color-amber-400) r g b / 30%);
       --selection: var(--color-amber-900);
@@ -46,16 +46,19 @@
 
   @media (prefers-color-scheme: dark) {
     &[data-tone="warm"] {
-      --page: var(--color-stone-800);
+      --page: rgb(from var(--color-stone-800) r g b / 80%);
+      --page-dim: var(--color-stone-900);
       --text: var(--color-stone-300);
       --text-dim: var(--color-stone-400);
-      --text-link: var(--color-);
+      --text-bright: var(--color-stone-100);
+      --text-link: rgb(from var(--color-yellow-100) r g b / 90%);
       --selection-bg: rgb(from var(--color-amber-700) r g b / 40%);
       --selection: var(--color-amber-50);
     }
 
     &[data-tone="cool"] {
-      --page: var(--color-slate-800);
+      --page: rgb(from var(--color-slate-800) r g b / 80%);
+      --page-dim: var(--color-slate-900);
       --text: var(--color-slate-300);
       --text-bright: var(--color-slate-100);
       --text-dim: var(--color-slate-400);
