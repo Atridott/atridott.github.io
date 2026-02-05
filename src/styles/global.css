@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 /* Font Source */
-/* @import "@fontsource/zen-kaku-gothic-new/300.css"; */
-/* @import "@fontsource/zen-kaku-gothic-new/400.css"; */
+/* @import '@fontsource/zen-kaku-gothic-new/300.css'; */
+/* @import '@fontsource/zen-kaku-gothic-new/400.css'; */
 @import "@fontsource/zen-kaku-gothic-new/500.css";
-/* @import "@fontsource/zen-kaku-gothic-new/700.css"; */
-/* @import "@fontsource/zen-kaku-gothic-new/900.css"; */
+/* @import '@fontsource/zen-kaku-gothic-new/700.css'; */
+/* @import '@fontsource/zen-kaku-gothic-new/900.css'; */
+@import "@fontsource-variable/inter";
 
 @theme static {
   --color-page: var(--page);
@@ -17,31 +18,31 @@
   --color-page-grid: rgb(from var(--color-text-dim) r g b / 12%);
   --color-selection-bg: var(--selection-bg);
   --color-selection: var(--selection);
+
+  --font-sans: "Inter Variable", "Zen Kaku Gothic New";
 }
 
 :root {
-  --dur-normal: 300ms;
+  &[data-tone="warm"] {
+    --page: rgb(from var(--color-stone-200) r g b / 80%);
+    --page-dim: var(--color-stone-300);
+    --text: var(--color-stone-800);
+    --text-dim: var(--color-stone-500);
+    --text-bright: var(--color-stone-900);
+    --text-link: var(--color-);
+    --selection-bg: rgb(from var(--color-amber-400) r g b / 30%);
+    --selection: var(--color-amber-900);
+  }
 
-  @media (prefers-color-scheme: light) {
-    &[data-tone="warm"] {
-      --page: rgb(from var(--color-stone-200) r g b / 80%);
-      --page-dim: var(--color-stone-300);
-      --text: var(--color-stone-800);
-      --text-dim: var(--color-stone-500);
-      --text-bright: var(--color-stone-900);
-      --text-link: var(--color-);
-      --selection-bg: rgb(from var(--color-amber-400) r g b / 30%);
-      --selection: var(--color-amber-900);
-    }
-
-    &[data-tone="cool"] {
-      --page: var(--color-slate-100);
-      --text: var(--color-slate-900);
-      --text-dim: rgb(from var(--color-slate-500) r g b / 70%);
-      --text-link: var(--color-);
-      --selection-bg: rgb(from var(--color-sky-400) r g b / 30%);
-      --selection: var(--color-sky-900);
-    }
+  &[data-tone="cool"] {
+    --page: var(--color-slate-100);
+    --page-dim: var(--color-slate-200);
+    --text: var(--color-slate-800);
+    --text-dim: rgb(from var(--color-slate-500) r g b / 75%);
+    --text-bright: var(--color-slate-950);
+    --text-link: var(--color-);
+    --selection-bg: rgb(from var(--color-sky-400) r g b / 30%);
+    --selection: var(--color-sky-900);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -60,8 +61,8 @@
       --page: rgb(from var(--color-slate-800) r g b / 80%);
       --page-dim: var(--color-slate-900);
       --text: var(--color-slate-300);
-      --text-bright: var(--color-slate-100);
       --text-dim: var(--color-slate-400);
+      --text-bright: var(--color-slate-100);
       --text-link: rgb(from var(--color-yellow-100) r g b / 90%);
       --selection-bg: rgb(from var(--color-cyan-400) r g b / 40%);
       --selection: var(--color-cyan-50);
@@ -69,11 +70,13 @@
   }
 }
 
-@custom-variant data-scrolled (html[data-scrolled] &);
-
 @layer base {
+  :where(a, button) {
+    @apply duration-300;
+  }
+
   body {
-    font-family: "Inter", "Zen Kaku Gothic New";
+    @apply font-sans font-[450];
   }
 
   h1 {

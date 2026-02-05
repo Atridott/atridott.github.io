@@ -4,6 +4,9 @@ import "../styles/global.css"
 import Header from "../components/layout/Header.astro"
 import Footer from "../components/layout/Footer.astro"
 
+// Lucide Icons
+import ExternalLink from "@lucide/astro/icons/external-link"
+
 const { title, emoji, tone, desc } = Astro.props
 ---
 
@@ -30,19 +33,19 @@ const { title, emoji, tone, desc } = Astro.props
     </head>
     <body
         class={` 
-		bg-page-dim
+	bg-page-dim
       selection:bg-selection-bg selection:text-selection
     `}
     >
         <Header emoji={emoji} />
         <section
             class={`
-          flex h-[60dvh] min-h-[30rem] w-full justify-center isolate
+          flex h-[60dvh] min-h-[30rem] w-full justify-center
         `}
         >
             <div
                 class={`
-             flex w-full max-w-[calc(65ch+3rem)] flex-col justify-end gap-6 px-7
+             flex w-full max-w-[calc(65ch+4rem)] flex-col border-x-2 border-page-grid justify-end gap-6 px-8
           `}
             >
                 <span
@@ -56,11 +59,11 @@ const { title, emoji, tone, desc } = Astro.props
         <main
             class={`
         flex w-full flex-col items-center leading-loose
-        text-text ring-2 ring-page-grid 
+        text-text ring-2 ring-page-grid
       `}
         >
             <article
-                class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content -z-20`}
+                class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content`}
             >
                 <slot />
             </article>
