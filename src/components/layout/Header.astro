@@ -1,31 +1,63 @@
 ---
 import "../../styles/global.css"
 
+import Popover from "../Popover.astro"
+
 // Lucide Icons
 import Bolt from "@lucide/astro/icons/bolt"
 import Map from "@lucide/astro/icons/map"
+import MonitorCog from "@lucide/astro/icons/monitor-cog"
+import Moon from "@lucide/astro/icons/moon"
+import SunMedium from "@lucide/astro/icons/sun-medium"
 ---
 
 <header
-    class="bg-page-dim ring-page-grid bg-stripe fixed z-10 flex h-14 w-full justify-center ring-2"
+    class="border-grid scrolled:border-b-(length:--grid-thickness) scrolled:bg-bg-base scrolled:bg-stripe fixed top-0 z-10 flex h-14 w-full justify-center bg-transparent shadow-[0_0] transition-all"
 >
     <div class="flex w-full max-w-6xl items-center justify-between px-6 py-4">
         <a
             href="/"
-            class="text-text-dim hover:text-text text-base font-normal tracking-tighter transition-all"
+            class="text-text-dim hover:text-text-main font-normal tracking-tighter transition-colors"
         >
             <span class="font-semibold">atridott</span>.github.io
         </a>
-        <nav
-            class="text-text-dim *:hover:text-text flex h-full gap-4 *:cursor-pointer *:stroke-[2.5]"
-        >
-            <button>
+        <nav class="flex h-full gap-4">
+            <button
+                popovertarget="settings-popover"
+                class="text-text-dim hover:text-text-main cursor-pointer stroke-[2.5] transition-colors [anchor-name:--settings-anchor]"
+            >
                 <Bolt
                     class="h-full w-full"
                     size={undefined}
                 />
             </button>
-            <button>
+            <Popover
+                id="settings-popover"
+                anchor="settings-anchor"
+                positionArea="bottom span-left"
+            >
+                <h2 class="my-2 text-2xl">設定</h2>
+                <div class="flex min-w-40 justify-between">
+                    <label
+                        class="font-normal"
+                        for="theme-select"
+                        >テーマ</label
+                    >
+                    <select
+                        id="theme-select"
+                        class="appearance-none"
+                    >
+                        <option class="flex">
+                            <MonitorCog />システム
+                        </option>
+                        <option class="flex">ライト</option>
+                        <option class="flex">ダーク</option>
+                    </select>
+                </div>
+            </Popover>
+            <button
+                class="text-text-dim hover:text-text-main cursor-pointer stroke-[2.5] transition-colors"
+            >
                 <Map
                     class="h-full w-full"
                     size={undefined}

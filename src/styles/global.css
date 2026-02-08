@@ -1,135 +1,149 @@
 @import "tailwindcss";
 
-/* Font Source */
-/* @import '@fontsource/zen-kaku-gothic-new/300.css'; */
-/* @import '@fontsource/zen-kaku-gothic-new/400.css'; */
-@import "@fontsource/zen-kaku-gothic-new/500.css";
-/* @import '@fontsource/zen-kaku-gothic-new/700.css'; */
-/* @import '@fontsource/zen-kaku-gothic-new/900.css'; */
-@import "@fontsource-variable/inter";
-
-@theme static {
-  --color-page: var(--page);
-  --color-page-dim: var(--page-dim);
-  --color-text: var(--text);
-  --color-text-dim: var(--text-dim);
-  --color-text-bright: var(--text-bright);
-  --color-text-link: var(--text-link);
-  --color-page-grid: rgb(from var(--color-text-dim) r g b / 12%);
-  --color-selection-bg: var(--selection-bg);
-  --color-selection: var(--selection);
-
-  --font-sans: "Inter Variable", "Zen Kaku Gothic New";
-}
-
 :root {
+  /*
   &[data-tone="warm"] {
     --page: rgb(from var(--color-stone-200) r g b / 80%);
     --page-dim: var(--color-stone-300);
-    --text: var(--color-stone-800);
-    --text-dim: var(--color-stone-500);
-    --text-bright: var(--color-stone-900);
-    --text-link: var(--color-);
-    --selection-bg: rgb(from var(--color-amber-400) r g b / 30%);
+
     --selection: var(--color-amber-900);
+    --selection-bg: rgb(from var(--color-amber-400) r g b / 20%);
+
+    --text: var(--color-stone-800);
+    --text-bright: var(--color-stone-900);
+    --text-dim: var(--color-stone-700);
+    --text-link: var(--color-amber-700);
+    --text-marker: rgb(from var(--color-amber-300) r g b / 50%);
   }
 
   &[data-tone="cool"] {
     --page: var(--color-slate-100);
     --page-dim: var(--color-slate-200);
-    --text: var(--color-slate-800);
+    --text: var(--color-slate-700);
     --text-dim: rgb(from var(--color-slate-500) r g b / 75%);
-    --text-bright: var(--color-slate-950);
-    --text-link: var(--color-);
+    --text-bright: var(--color-slate-900);
+    --text-accent: var(--color-sky-600);
     --selection-bg: rgb(from var(--color-sky-400) r g b / 30%);
     --selection: var(--color-sky-900);
   }
 
   @media (prefers-color-scheme: dark) {
     &[data-tone="warm"] {
-      --page: rgb(from var(--color-stone-800) r g b / 80%);
+      --page: var(--color-stone-800);
+      --page-bright: var(--color-stone-700);
       --page-dim: var(--color-stone-900);
+
       --text: var(--color-stone-300);
+      --text-accent: rgb(from var(--color-yellow-100) r g b / 90%);
+      --text-bright: var(--color-stone-200);
       --text-dim: var(--color-stone-400);
-      --text-bright: var(--color-stone-100);
-      --text-link: rgb(from var(--color-yellow-100) r g b / 90%);
-      --selection-bg: rgb(from var(--color-amber-700) r g b / 40%);
+
       --selection: var(--color-amber-50);
+      --selection-bg: rgb(from var(--color-amber-700) r g b / 40%);
     }
 
     &[data-tone="cool"] {
-      --page: rgb(from var(--color-slate-800) r g b / 80%);
+      --page: var(--color-slate-800);
       --page-dim: var(--color-slate-900);
       --text: var(--color-slate-300);
       --text-dim: var(--color-slate-400);
       --text-bright: var(--color-slate-100);
-      --text-link: rgb(from var(--color-yellow-100) r g b / 90%);
+      --text-accent: rgb(from var(--color-yellow-100) r g b / 90%);
       --selection-bg: rgb(from var(--color-cyan-400) r g b / 40%);
       --selection: var(--color-cyan-50);
     }
   }
+    */
+
+  --grid-thickness: 1px;
+  --stripe-thickness: 1.5px;
+  --stripe-spacing: 0.8rem;
+
+  &[data-tone="warm"] {
+    --bg-base: var(--color-stone-300);
+    --bg-surface: var(--color-stone-200);
+    --bg-float: var(--color-stone-700);
+    --bg-selection: var(--color-amber-800);
+
+    --text-main: var(--color-stone-800);
+    --text-dim: var(--color-stone-300);
+    --text-dimmer: var(--color-stone-400);
+    --text-selected: var(--color-amber-100);
+
+    --grid: var(--color-stone-600);
+    --stripe: oklab(from var(--color-rose-400) l a b / 100%);
+  }
+
+  &[data-tone="cool"] {
+    --bg-base: var(--color-slate-200);
+    --bg-surface: var(--color-slate-100);
+    --bg-float: var(--color-slate-700);
+    --bg-selection: var(--color-amber-800);
+
+    --text-main: var(--color-slate-800);
+    --text-dim: var(--color-slate-500);
+    --text-dimmer: var(--color-slate-400);
+    --text-selected: var(--color-amber-100);
+
+    --grid: oklab(from var(--color-slate-800) l a b / 5%);
+    --stripe: oklab(from var(--color-slate-500) l a b / 5%);
+  }
+}
+
+@theme {
+  --color-bg-base: var(--bg-base); /* 最下層 */
+  --color-bg-surface: var(--bg-surface); /* ページ固有のコンテンツを載せる */
+  --color-bg-float: var(--bg-float); /* ポップオーバーなど */
+  --color-bg-selection: var(--bg-selection);
+
+  --color-grid: var(--grid);
+
+  --color-text-main: var(--text-main);
+  --color-text-dim: var(--text-dim);
+  --color-text-dimmer: var(--text-dimmer);
+  --color-text-selected: var(--text-selected);
+
+  --font-sans: "Inter Variable", "Zen Kaku Gothic New", sans-serif;
+
+  --default-transition-duration: 300ms;
+
+  --spacing-sm: 1.5rem; /* 6tw */
+  --spacing-md: 2rem; /* 8tw */
+  --spacing-lg: 3rem; /* 12tw */
+
+  --spacing-prose: 48rem /* 本文の横幅 (padding を含む) */;
 }
 
 @layer base {
-  :where(a, button) {
-    @apply duration-300;
-  }
-
-  body {
-    @apply font-sans font-[450];
-  }
-
-  h1 {
-    @apply text-text-bright text-4xl tracking-tight font-semibold;
+  :where(*) {
+    box-sizing: content-box;
   }
 
   article {
-    @apply wrap-anywhere break-normal antialiased text-pretty text-base;
-    line-break: strict;
-
+    /*
     & :where(a) {
-      @apply relative -ms-0.5 py-1 px-1 me-0.5 text-text-link h-lh underline underline-offset-4 decoration-current transition-all duration-(--dur-normal) rounded-md;
-
-      &[href^="http"] {
-        @apply pe-4.5;
-        &::after {
-          @apply absolute ms-0.5;
-          content: "↗︎";
-          font-weight: initial;
-          transition: all;
-          transition-duration: var(--dur-normal);
-        }
-      }
-
-      &:hover {
-        @apply bg-text-link/15;
-      }
+      @apply underline decoration-current/40 underline-offset-4 transition-all hover:decoration-current;
     }
 
     & :where(blockquote) {
-      @apply border-s-2 border-text-dim ms-12 mb-8 py-2 before:content-["“”"] before:font-serif before:text-5xl before:font-black before:ms-6 before:tracking-tighter;
+      @apply ms-12 mb-8 border-s-2 py-2 before:ms-6 before:font-serif before:text-5xl before:font-black before:tracking-tighter before:content-["“”"];
 
       p {
-        @apply ms-6 ps-0 m-0;
+        @apply m-0 ms-6 ps-0;
       }
     }
 
     & :where(code) {
-      @apply bg-text-dim/15 px-2 py-1 text-sm rounded-md font-medium mx-0.5;
-    }
-
-    &:where(h1, h2, h3, h4, h5, h6, caption) {
-      font-kerning: normal;
-      font-feature-settings: "palt";
+      @apply bg-text-dim/10 rounded-md px-2 py-1 text-sm font-medium;
     }
 
     & :where(h2) {
-      @apply text-text-bright text-3xl mt-12 mb-8 px-8 py-6 font-semibold border-y-2 border-page-grid before:content-["§"] before:text-text-dim before:text-2xl before:me-4;
+      @apply border-page-grid before:text-text-dim mt-12 mb-8 border-y-2 px-8 py-6 text-3xl font-semibold before:me-4 before:text-2xl before:content-["§"];
 
       background-image: repeating-linear-gradient(
         135deg,
-        rgb(from var(--color-page-grid) r g b / var(--stripe-opacity, 10%)) 0,
-        rgb(from var(--color-page-grid) r g b / var(--stripe-opacity, 10%)) 1px,
+        rgb(from var(--color-page-grid) r g b / 10%) 0,
+        rgb(from var(--color-page-grid) r g b / 10%) 1px,
         transparent 0,
         transparent 50%
       );
@@ -137,11 +151,11 @@
     }
 
     & :where(h3) {
-      @apply text-text-bright font-semibold border-b-2 border-page-grid;
+      @apply border-page-grid border-b-2 font-semibold;
     }
 
     & :where(h4) {
-      @apply text-text-bright text-xl font-semibold;
+      @apply text-xl font-semibold;
     }
 
     & :where(hr) {
@@ -154,48 +168,45 @@
       li {
         list-style-type: decimal;
       }
-    }
+    } */
 
-    & :where(p) {
-      @apply px-8 leading-loose;
+    :where(& > p) {
+      padding-inline: min(3rem, 5dvw); /* 3rem = 12tw */
+      line-height: 2.25;
 
       & + p {
         @apply mt-6;
       }
-    }
+    } /*
 
     & :where(strong) {
-      @apply text-text-bright;
+      @apply to-text-marker bg-linear-to-b from-transparent from-60% to-60% font-bold;
+    }
+
+    & > ul {
+      @apply ms-12;
     }
 
     & :where(ul) {
-      @apply leading-loose space-y-1;
-
-      & ul {
-        @apply my-3;
-      }
+      @apply ms-8 space-y-1 leading-loose;
 
       li {
         list-style-type: "–  ";
       }
     }
+  */
   }
 }
 
-@layer utilities {
-  .bg-stripe {
-    background-image: repeating-linear-gradient(
-      135deg,
-      rgb(from var(--color-page-grid) r g b / var(--stripe-opacity, 10%)) 0,
-      rgb(from var(--color-page-grid) r g b / var(--stripe-opacity, 10%)) 1px,
-      transparent 0,
-      transparent 50%
-    );
-    background-size: 1rem 1rem;
-  }
+@custom-variant scrolled (html[data-scrolled="true"] &);
 
-  .text-hoverable {
-    @apply text-text-dim hover:text-text transition-all;
-    transition-duration: var(--dur-normal);
-  }
+@utility bg-stripe {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--stripe) 0,
+    var(--stripe) var(--stripe-thickness),
+    transparent 0,
+    transparent 50%
+  );
+  background-size: var(--stripe-spacing) var(--stripe-spacing);
 }

@@ -1,0 +1,17 @@
+---
+interface Props {
+    id: string
+    anchor: string
+    positionArea: string
+}
+const { id, anchor, positionArea } = Astro.props
+---
+
+<div
+    popover
+    id={id}
+    class="text-text ring-page-grid bg-page-bright fixed px-6 py-4 shadow-2xl ring-2"
+    style={`position-anchor: --${anchor}; position-area: ${positionArea}`}
+>
+    <slot />
+</div>

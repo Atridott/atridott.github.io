@@ -1,11 +1,19 @@
 ---
-import "../styles/global.css"
-
 import Header from "../components/layout/Header.astro"
 import Footer from "../components/layout/Footer.astro"
 
 // Lucide Icons
 import ExternalLink from "@lucide/astro/icons/external-link"
+
+// Fonts
+import "@fontsource-variable/inter"
+import "@fontsource/zen-kaku-gothic-new/japanese-300"
+import "@fontsource/zen-kaku-gothic-new/japanese-400"
+import "@fontsource/zen-kaku-gothic-new/japanese-500"
+import "@fontsource/zen-kaku-gothic-new/japanese-700"
+
+import "../styles/global.css"
+// import { MediaRuler } from "../components/MediaRuler"
 
 const { title, emoji, tone, desc } = Astro.props
 ---
@@ -29,23 +37,48 @@ const { title, emoji, tone, desc } = Astro.props
             name="description"
             content={desc}
         />
-        <title>{`${title} - ȧ.io`}</title>
+        <title>{`${title} - Atridott`}</title>
+        <script>
+            const articleHeader = document.getElementById("article-header")
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    document.documentElement.dataset.scrolled =
+                        (!entry.isIntersecting).toString()
+                },
+                { threshold: [0] },
+            )
+
+            if (articleHeader) {
+                observer.observe(articleHeader)
+            }
+        </script>
     </head>
     <body
         class={` 
-	bg-page-dim
-      selection:bg-selection-bg selection:text-selection
+	bg-bg-base w-dvw
+      selection:bg-bg-selection selection:text-text-selected
     `}
     >
-        <Header emoji={emoji} />
+        <Header />
         <section
+            id="article-header"
             class={`
-          flex h-[60dvh] min-h-[30rem] w-full justify-center
+          flex h-[70dvh] overflow-hidden min-h-[30rem] w-full justify-center relative border-b-(length:--grid-thickness) border-grid bg-stripe
         `}
         >
             <div
+                class="from-bg-base/70 via-bg-base/40 to-bg-base/90 absolute -z-10 h-full w-full bg-linear-to-b via-10%"
+            >
+            </div>
+            <div
+                class="absolute bottom-8 left-5/12 -z-20 h-[60rem] -translate-x-1/2 text-[60rem] blur-3xl select-none"
+            >
+                {emoji}
+            </div>
+            <div
                 class={`
-             flex w-full max-w-[calc(65ch+4rem)] flex-col border-x-2 border-page-grid justify-end gap-6 px-8
+             flex w-full max-w-[calc(65ch+4rem)] flex-col justify-end gap-6 px-8 
           `}
             >
                 <span
@@ -53,21 +86,34 @@ const { title, emoji, tone, desc } = Astro.props
                     aria-hidden="true"
                     >{emoji}</span
                 >
-                <h1 class="text-text-bright mb-20">{title}</h1>
+                <h1
+                    class="text-text-main mb-20 text-4xl font-semibold tracking-tight"
+                >
+                    {title}
+                </h1>
             </div>
         </section>
         <main
             class={`
-        flex w-full flex-col items-center leading-loose
-        text-text ring-2 ring-page-grid
+        font-[450] flex justify-center leading-loose
+        wrap-anywhere break-normal antialiased text-pretty [line-break:strict]
       `}
         >
-            <article
-                class={`max-w-[calc(65ch+4rem)] w-full border-x-2 border-page-grid bg-page py-8 box-content`}
-            >
+            <div class="border-grid border-r-(length:--grid-thickness)"></div>
+            <article class={`w-[48rem] text-text-main bg-bg-surface py-8`}>
                 <slot />
             </article>
+            <aside
+                class="border-grid h-full border-l-(length:--grid-thickness) p-6"
+            >
+                <section
+                    class="bg-bg-surface ring-grid box-border w-80 p-8 ring-(length:--grid-thickness)"
+                >
+                    サイドバーには記事の目次や著者情報を掲載します
+                </section>
+            </aside>
         </main>
+        <!-- <MediaRuler /> -->
         <Footer />
     </body>
 </html>

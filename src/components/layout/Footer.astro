@@ -5,23 +5,23 @@ import Rss from "@lucide/astro/icons/rss"
 ---
 
 <footer
-  class="border-page-grid bg-stripe border-t-2 p-6 text-text-dim flex justify-between **:transition-all **:duration-(--dur-normal)"
+    class="border-grid bg-stripe text-text-dim flex justify-between border-t-(length:--grid-thickness) p-6"
 >
-  <span class="text-text">© Atridott 2026</span>
-  <ul class="flex gap-3">
-    <li>
-      <a
-        href="https://github.com/atridott/atridott.github.io/"
-        class="text-hoverable"
-        ><Github /></a
-      >
-    </li>
-    <li>
-      <a
-        href="https://github.com/atridott/atridott.github.io/"
-        class="text-hoverable"
-        ><Rss /></a
-      >
-    </li>
-  </ul>
+    <span class="before:content-['©_']">Atridott 2026</span>
+    <ul class="flex gap-3">
+        <li>
+            <a
+                href="https://github.com/atridott/atridott.github.io/"
+                class="hover:text-text-main transition-all"
+                ><Github /></a
+            >
+        </li>
+        <li>
+            <a
+                href="https://github.com/atridott/atridott.github.io/"
+                class="hover:text-text-main transition-all"
+                ><Rss /></a
+            >
+        </li>
+    </ul>
 </footer>

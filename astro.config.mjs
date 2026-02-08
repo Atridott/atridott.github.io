@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite"
 
 import mdx from "@astrojs/mdx"
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://atridott.github.io",
@@ -14,5 +16,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [mdx()],
+  integrations: [mdx(), react()],
 })
