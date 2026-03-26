@@ -1,0 +1,10 @@
+@layer reset, tokens, base;
+
+@import "./reset/destyle.css" layer(reset);
+
+@import "./tokens/palette.css" layer(tokens);
+@import "./tokens/tokens.css" layer(tokens);
+
+:root {
+  color-scheme: light dark;
+}
