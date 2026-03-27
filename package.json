@@ -2,6 +2,7 @@
   "name": "atridott.github.io",
   "version": "0.0.1",
   "dependencies": {
+    "@astrojs/mdx": "^5.0.3",
     "astro": "^6.0.8"
   },
   "engines": {
