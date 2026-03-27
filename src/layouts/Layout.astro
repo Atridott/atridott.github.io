@@ -1,8 +1,10 @@
 ---
 import "@/styles/global.css"
+
+const { tone, title, emoji } = Astro.props
 ---
 
-<html class="warm">
+<html class={tone}>
   <head>
     <meta charset="utf-8" />
     <link
