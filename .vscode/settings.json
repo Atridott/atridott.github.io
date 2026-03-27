@@ -1,6 +1,0 @@
-{
-  "stylelint.validate": ["css", "astro"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": "never"
-  }
-}
