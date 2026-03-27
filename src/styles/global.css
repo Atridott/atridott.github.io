@@ -5,6 +5,4 @@
 @import "./tokens/palette.css" layer(tokens);
 @import "./tokens/tokens.css" layer(tokens);
 
-:root {
-  color-scheme: light dark;
-}
+@import "./base/base.css" layer(base);

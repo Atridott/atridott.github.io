@@ -1,0 +1,12 @@
+:root {
+	font-size: 16px;
+  color-scheme: light dark;
+}
+
+body {
+	margin: 3rem;
+	font-family: "Caslon";
+	line-height: 2rem;
+	color: var(--fg);
+	background-color: var(--bg);
+}
