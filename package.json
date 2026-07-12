@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
     "astro": "^7.0.7"
   },
   "devDependencies": {
