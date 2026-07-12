@@ -1,0 +1,7 @@
+@import "./reset.css";
+@import "@radix-ui/colors/gold.css";
+
+body {
+   background-color: var(--gold-4);
+   color: var(--gold-12);
+}
