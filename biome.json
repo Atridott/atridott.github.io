@@ -15,7 +15,9 @@
    "html": {
       "experimentalFullSupportEnabled": true,
       "formatter": {
-         "enabled": true
+         "enabled": true,
+         "selfCloseVoidElements": "always",
+         "indentScriptAndStyle": true
       }
    },
 
