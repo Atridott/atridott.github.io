@@ -1,7 +1,11 @@
 @import "./reset.css";
-@import "@radix-ui/colors/gold.css";
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sand-dark.css";
+
+:root {
+   --bg: var(--sand-3);
+}
 
 body {
-   background-color: var(--gold-4);
-   color: var(--gold-12);
+   background: var(--bg);
 }

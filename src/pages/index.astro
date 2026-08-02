@@ -1,24 +1,16 @@
 ---
-import "@/styles/index.css";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const notes = await getCollection("notes");
 ---
 
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <meta name="generator" content={Astro.generator}>
-      <title>Astro</title>
-   </head>
-   <body>
-      <h1>Astro</h1>
-      <h2>Notes</h2>
-      <ul>
-         {notes.map(note => (
+<BaseLayout title="hello">
+   <h1>Astro</h1>
+   <h2>Notes</h2>
+   <ul>
+      {notes.map(note => (
             <li><a href={`/notes/${note.id}`}>{note.data.title}</a></li>
          ))}
-      </ul>
-   </body>
-</html>
+   </ul>
+</BaseLayout>
