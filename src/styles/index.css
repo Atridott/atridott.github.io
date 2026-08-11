@@ -1,11 +1,29 @@
 @import "./reset.css";
+
 @import "@radix-ui/colors/sand.css";
 @import "@radix-ui/colors/sand-dark.css";
 
+@import "@fontsource-variable/eb-garamond/wght.css";
+
 :root {
-   --bg: var(--sand-3);
+   --bg: var(--sand-4);
+   --fg: var(--sand-12);
+   --font-serif: "EB Garamond Variable", serif;
+   --font-mono: "SF Mono", ui-monospace, monospace;
+}
+
+@media (prefers-contrast: more) {
+   :root {
+      --bg: var(--sand-2);
+   }
 }
 
 body {
    background: var(--bg);
+   color: var(--fg);
+   font-family: var(--font-serif);
+}
+
+h1 {
+   letter-spacing: -0.025ch;
 }
