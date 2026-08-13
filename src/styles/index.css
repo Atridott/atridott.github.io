@@ -10,7 +10,7 @@
    --fg: var(--sand-12);
    --fg-muted: var(--sand-10);
 
-   --page-m: calc(12vw - 2rem);
+   --page-m: calc(12vw - 1rem);
 
    --font-serif: "EB Garamond Variable", serif;
    --font-mono: "SF Mono", ui-monospace, monospace;
