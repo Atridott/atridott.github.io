@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
    const notes = await getCollection("notes", ({ data }) => !data.draft);
@@ -14,10 +14,13 @@ const { note } = Astro.props;
 const { Content } = await render(note);
 ---
 
-<BaseLayout title={note.data.title}>
-   <h1>{note.data.title}</h1>
+<Layout title={note.data.title} space="notes">
+   <article>
+      <header>
+         <h1>{note.data.title}</h1>
          <p>Published: {note.data.pubDate.toDateString()}</p>
       </header>
       <hr />
-   <Content />
-</BaseLayout>
+      <Content />
+   </article>
+</Layout>
